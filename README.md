@@ -26,15 +26,18 @@ Please organize your host directory strictly as follows:
 ## 1. Apptainer / Singularity
 
 ## General syntax
+```text
 apptainer exec --bind /your/host/db/path:/ref_db metagenome_v1.sif <tool> [args]
 
 ## Example: Run MetaWRAP Binning
+```text
 apptainer exec --bind /data/db:/ref_db metagenome_v1.sif \
     metawrap binning -o out_dir -t 24 -a assembly.fa clean_reads_1.fq clean_reads_2.fq
 
 
 ## 2. Docker
 ## Note: Mount current directory to /work to save outputs
+```text
 docker run --rm -v /your/host/db/path:/ref_db -v "$PWD":/work -w /work \
     metagenome:v1 metawrap binning ...
 
