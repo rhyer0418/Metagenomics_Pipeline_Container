@@ -8,11 +8,10 @@
 - **Smart Wrappers:** No need to run `conda activate`. All tools (e.g., `metawrap`, `checkm`, `gtdbtk`) are directly executable from `/usr/local/bin`.
 - **Patched & Optimized:** Includes fixes for MetaWRAP BLAS/MKL conflicts and supports SPAdes v4.2.0 alongside legacy versions.
 
-## Database Setup (CRITICAL)
+## Database Setup 
 The container requires external databases mounted to **`/ref_db`**.
 Please organize your host directory strictly as follows:
 
-```text
 /your/host/db/path/
 ├── gtdb/               # GTDB-Tk data (release 207/214)
 ├── checkm/             # CheckM v1 data
@@ -22,7 +21,7 @@ Please organize your host directory strictly as follows:
       ├── NCBI_nt       # NCBI Nucleotide database
       └── NCBI_tax      # NCBI Taxonomy database
 
-```Quick Start
+## Quick Start
 1. Apptainer / Singularity
 
 # General syntax
@@ -39,8 +38,7 @@ docker run --rm -v /your/host/db/path:/ref_db -v "$PWD":/work -w /work \
     metagenome:v1 metawrap binning ...
 
 
-    
-```Included Tools & Versions
+## Included Tools & Versions
 | **Tool**         | **Version** | **Env Python** |
 | ---------------- | ----------- | -------------- |
 | MetaWRAP         | v1.3.2      | 2.7            |
