@@ -12,6 +12,7 @@
 The container requires external databases mounted to **`/ref_db`**.
 Please organize your host directory strictly as follows:
 
+```text
 /your/host/db/path/
 ├── gtdb/               # GTDB-Tk data (release 207/214)
 ├── checkm/             # CheckM v1 data
