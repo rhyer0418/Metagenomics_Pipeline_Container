@@ -21,24 +21,24 @@ Please organize your host directory strictly as follows:
       ├── NCBI_nt       # NCBI Nucleotide database
       └── NCBI_tax      # NCBI Taxonomy database
 
-## Quick Start
-1. Apptainer / Singularity
+# Quick Start
+## 1. Apptainer / Singularity
 
-# General syntax
+## General syntax
 apptainer exec --bind /your/host/db/path:/ref_db metagenome_v1.sif <tool> [args]
 
-# Example: Run MetaWRAP Binning
+## Example: Run MetaWRAP Binning
 apptainer exec --bind /data/db:/ref_db metagenome_v1.sif \
     metawrap binning -o out_dir -t 24 -a assembly.fa clean_reads_1.fq clean_reads_2.fq
 
 
-2. Docker
-# Note: Mount current directory to /work to save outputs
+## 2. Docker
+## Note: Mount current directory to /work to save outputs
 docker run --rm -v /your/host/db/path:/ref_db -v "$PWD":/work -w /work \
     metagenome:v1 metawrap binning ...
 
 
-## Included Tools & Versions
+# Included Tools & Versions
 | **Tool**         | **Version** | **Env Python** |
 | ---------------- | ----------- | -------------- |
 | MetaWRAP         | v1.3.2      | 2.7            |
