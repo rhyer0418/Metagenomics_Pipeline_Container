@@ -21,26 +21,26 @@ Please organize your host directory strictly as follows:
       ├── BMTAGGER_DB   # Host contamination removal files
       ├── NCBI_nt       # NCBI Nucleotide database
       └── NCBI_tax      # NCBI Taxonomy database
-
+```
 # Quick Start
 ## 1. Apptainer / Singularity
 
 ## General syntax
-```text
+```bash
 apptainer exec --bind /your/host/db/path:/ref_db metagenome_v1.sif <tool> [args]
-
+```
 ## Example: Run MetaWRAP Binning
-```text
+```bash
 apptainer exec --bind /data/db:/ref_db metagenome_v1.sif \
     metawrap binning -o out_dir -t 24 -a assembly.fa clean_reads_1.fq clean_reads_2.fq
-
+```
 
 ## 2. Docker
 ## Note: Mount current directory to /work to save outputs
-```text
+```bash
 docker run --rm -v /your/host/db/path:/ref_db -v "$PWD":/work -w /work \
     metagenome:v1 metawrap binning ...
-
+```
 
 # Included Tools & Versions
 | **Tool**         | **Version** | **Env Python** |
